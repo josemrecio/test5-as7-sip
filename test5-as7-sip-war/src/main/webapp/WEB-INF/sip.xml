@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sip-app>
+
+    <app-name>test5</app-name>
+    <display-name>Mi Simple Sip Servlet</display-name>
+    <description>Mi Simple Sip Servlet</description>
+
+    <servlet-selection>
+        <main-servlet>
+            TestPochete
+        </main-servlet>
+    </servlet-selection>
+
+     <servlet>
+         <servlet-name>TestPochete</servlet-name>
+         <display-name>TestPochete</display-name>
+         <description>TestPochete servlet</description>
+         <servlet-class>
+             com.chema.web.TestPochete
+         </servlet-class>
+         <load-on-startup>1</load-on-startup>
+     </servlet>
+
+    <context-param>
+        <param-name>bye.delay</param-name>
+        <param-value>60000</param-value>
+    </context-param>
+
+     <listener>
+         <listener-class>
+             com.chema.web.TestPochete
+         </listener-class>
+     </listener>
+</sip-app>

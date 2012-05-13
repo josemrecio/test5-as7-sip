@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+        <artifactId>test5-as7-sip</artifactId>
+        <groupId>com.chema</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.chema</groupId>
+  <artifactId>test5-as7-sip-ear</artifactId>
+  <packaging>ear</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>test5-as7-sip-ear JEE5 Assembly</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+ 	<dependency>
+        <groupId>com.chema.ejb</groupId>
+        <artifactId>test5-as7-sip-ejb</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>ejb</type>
+    </dependency>
+    <dependency>
+	    <groupId>com.chema.web</groupId>
+	    <artifactId>test5-as7-sip-war</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+	    <type>war</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.4.2</version>
+        <configuration>
+            <generateApplicationXml>true</generateApplicationXml>
+            <version>5</version>
+            <earSourceDirectory>src/main/application</earSourceDirectory>
+            <earSourceExcludes>**/application.xml</earSourceExcludes>
+            <modules>       
+                <ejbModule>
+                    <groupId>com.chema.ejb</groupId>
+                    <artifactId>test5-as7-sip-ejb</artifactId>
+                    <bundleFileName>test5-as7-sip-ejb.jar</bundleFileName>
+                </ejbModule>
+                <webModule>
+                    <groupId>com.chema.web</groupId>
+                    <artifactId>test5-as7-sip-war</artifactId>
+                    <contextRoot>/test5-as7-sip-war</contextRoot>
+                    <bundleFileName>test5-as7-sip-war.war</bundleFileName>
+                </webModule>
+            </modules>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <finalName>test5-as7-sip-ear</finalName>
+  </build>
+
+</project>

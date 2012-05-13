@@ -1,0 +1,8 @@
+Simple EAR project testing JNDI behaviour from SIP Servlets
+
+- TestPochete: SIP Servlet, it has ok access to SipFactory from @Resource but not from JNDI. Listing the JNDI shows that there are missing leaves in the JNDI tree
+
+- ListJndi: HTTP Servlet, it has ok access to complete JNDI tree, invoke http://127.0.0.1:8080/test5-as7-sip-war/listjndi
+
+- PocheteEjbBean: EJB, it has ok access to both SipFactory both from @Resource and from JNDI
+
